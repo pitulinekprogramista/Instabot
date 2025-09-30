@@ -83,7 +83,8 @@ python instabot.py
 ## Plany na przyszłość
 
 - Dodać opóźnienia (`time.sleep`) lub randomizację, aby bot wyglądał bardziej naturalnie.  
-- Rozszerzyć statystyki lub dodać „Turbo Level / Rank” w konsoli.  
+- Rozszerzyć statystyki lub dodać „Turbo Level / Rank” w konsoli.
+- Dodać funkcję omijania słówka lub jego nie samo auto zapisywania do słownika
 
 ---
 
