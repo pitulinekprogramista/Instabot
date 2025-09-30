@@ -23,8 +23,10 @@ Bot wpisuje słówka, uczy się na błędach i prowadzi statystyki.
 pip install selenium googletrans==4.0.0-rc1
 ```
 
-3. Sprawdź, że `chromedriver.exe` jest w tym samym folderze co `instabot.py`.  
-   Pobierz odpowiednią wersję ChromeDriver: https://chromedriver.chromium.org/downloads
+3. Sprawdź, że `chromedriver.exe` jest w tym samym folderze co `instabot.py`.
+- `selenium` – do sterowania przeglądarką Chrome.  
+- `googletrans==4.0.0-rc1` – do tłumaczenia słówek.  
+Pobierz odpowiednią wersję ChromeDriver: https://chromedriver.chromium.org/downloads
 
 ---
 
@@ -47,9 +49,9 @@ PASSWORD = "twoje_haslo"
 python instabot.py
 ```
 
-3. Bot automatycznie wpisze login i hasło.  
-4. Otwórz stronę lekcji w przeglądarce.  
-5. W terminalu wciśnij ENTER, aby rozpocząć speedrun lekcji.  
+3. Bot automatycznie wpisze login i hasło.  ( Być może bedzie potrzebne zaakcepowanie plików cookies instalinga)
+4. Kliknij rozpocnij lekcje.  
+5. A terminalu wciśnij ENTER, aby rozpocząć speedrun lekcji.  
 
 ---
 
@@ -66,7 +68,8 @@ python instabot.py
 ## Uwagi
 
 - Logi Chrome (np. PHONE_REGISTRATION_ERROR, DevTools listening) mogą pojawiać się w terminalu – są normalne i nie wpływają na działanie bota.  
-- Nie używamy środowiska wirtualnego (`venv`), więc pakiety Python są globalne.  
+- Nie używamy środowiska wirtualnego (`venv`), więc pakiety Python są globalne.
+- Bot na początku bedzie sie mylić a czasami uznaję własne poprawne odpowiedzi za błędne, nie wpływa to na działanie bota
 
 ---
 
@@ -80,3 +83,10 @@ python instabot.py
 ## Autor
 
 Junior
+
+## Odpowiedzialność
+
+Metoda sprawdzona w praktyce, lecz w przyszłości Instaling może zmienić layout lub wprowadzić zabezpieczenia.  
+Bot może wtedy przestać działać.  
+
+Nie biorę odpowiedzialności za ewentualne konsekwencje korzystania z programu – używasz go na własną odpowiedzialność.
