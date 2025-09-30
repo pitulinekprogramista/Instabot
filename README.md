@@ -68,7 +68,8 @@ python instabot.py
 - Jeśli zna tłumaczenie z `slownik.json`, wpisuje od razu.  
 - Jeśli nie zna, używa Google Translate (PL → EN).  
 - Po odpowiedzi sprawdza poprawność i uczy się na błędach, zapisując poprawną formę w `slownik.json`.  
-- Prowadzi statystyki w `statystyki.json` (liczba uruchomień i słówek rozwiązanych).  
+- Prowadzi statystyki w `statystyki.json` (liczba uruchomień i słówek rozwiązanych).
+- NOWA FUNKCJA- jesli bot wpada w petle możesz manualnie wpisać mu tłumaczenie w słowniku i zmienić argument locked z false na true
 
 ---
 
