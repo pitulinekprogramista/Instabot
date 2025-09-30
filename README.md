@@ -16,17 +16,24 @@ Bot wpisuje słówka, uczy się na błędach i prowadzi statystyki.
 
 ## Instalacja pakietów
 
-1. Otwórz terminal w folderze projektu (InstaBot).  
-2. Zainstaluj wymagane biblioteki:
+1. Kliknij w zielony przycisk code na górze strony github, oraz download .zip następnie rozpakuj folder na swoim komputerze.
+2. Otwórz terminal w folderze projektu (InstaBot) Używając komend cd(wejdz do folderu) ls(pokaż dostepne foldery/pliki) NP.
+```
+ cd C:\Users\Nazwa\Downloads\Instabot-main.
+```  
+3. Zainstaluj wymagane biblioteki:
 
 ```
 pip install selenium googletrans==4.0.0-rc1
 ```
 
-3. Sprawdź, że `chromedriver.exe` jest w tym samym folderze co `instabot.py`.
-- `selenium` – do sterowania przeglądarką Chrome.  
-- `googletrans==4.0.0-rc1` – do tłumaczenia słówek.  
-Pobierz odpowiednią wersję ChromeDriver: https://chromedriver.chromium.org/downloads
+4. Upewnij sie jaką masz wersje chrome wpisująć w pasek wyszukiwania
+```
+   chrome://settings/help
+```
+5.Pobierz odpowiednią wersję dla swojej przeglądarki ChromeDriver z: https://chromedriver.chromium.org/downloads
+
+6.Sprawdź, czy `chromedriver.exe` jest w tym samym folderze co `instabot.py` jeśli nie przenieś go tam.
 
 ---
 
@@ -42,8 +49,8 @@ PASSWORD = "twoje_haslo"
 
 ## Uruchomienie bota
 
-1. Otwórz terminal w folderze projektu.  
-2. Uruchom skrypt:
+1. Otwórz terminal w folderze projektu(tak jak powyżej CD i LS).  
+2. Uruchom skrypt komendą:
 
 ```
 python instabot.py
