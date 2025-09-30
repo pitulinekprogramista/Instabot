@@ -116,6 +116,7 @@ while True:
 # zapisz statystyki
 save_stats(stats)
 print(f"\n🏆 Sesja zakończona. Łącznie uruchomień: {stats['runs']}, słówek rozwiązanych: {stats['words']}.")
-
+input("\nNaciśnij ENTER, aby zamknąć przeglądarkę...")
 driver.quit()
+
 
