@@ -3,17 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from googletrans import Translator
 import time, json, random, os
-
-chrome_options = Options()
-chrome_options.add_argument("--log-level=3")  # ERROR only
-chrome_options.add_argument("--silent")
-chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-driver = webdriver.Chrome(options=chrome_options)
 
 # ---- konfiguracja ----
 LOGIN_URL = "https://instaling.pl/teacher.php?page=login"
@@ -48,7 +40,12 @@ def save_stats(s):
         json.dump(s, f, ensure_ascii=False, indent=2)
 
 # ---- start selenium ----
-driver = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--log-level=3")  # ERROR only
+chrome_options.add_argument("--silent")
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+driver = webdriver.Chrome(options=chrome_options)
 driver.get(LOGIN_URL)
 time.sleep(2)
 
@@ -77,7 +74,7 @@ while True:
 
         # sprawdź czy znamy
         if word_pl in slownik:
-            word_en = slownik[word_pl]
+            word_en = slownik[word_pl]["translation"]
         else:
             # próbujemy Google Translate (pl -> en)
             try:
@@ -96,13 +93,14 @@ while True:
         correct_word = driver.find_element(By.ID, "word").text.strip().lower()
         stats["words"] += 1
 
-        # jeśli się różni, zapamiętaj poprawną
-        if word_pl not in slownik or slownik[word_pl] != correct_word:
-            slownik[word_pl] = correct_word
+        # jeśli słowo nie jest zablokowane lub nie istnieje, zapisz/aktualizuj
+        if word_pl not in slownik or not slownik[word_pl].get("locked", False):
+            # domyślnie locked = False
+            slownik[word_pl] = {"translation": correct_word, "locked": False}
             save_dict(slownik)
             print(f"❌ {word_pl} -> {word_en} | poprawnie: {correct_word}")
         else:
-            print(f"✅ {word_pl} -> {word_en}")
+            print(f"✅ {word_pl} -> {word_en} (zablokowane, nie nadpisano)")
 
         # kliknij enter, żeby lecieć dalej
         body = driver.find_element(By.TAG_NAME, "body")
@@ -120,3 +118,4 @@ save_stats(stats)
 print(f"\n🏆 Sesja zakończona. Łącznie uruchomień: {stats['runs']}, słówek rozwiązanych: {stats['words']}.")
 
 driver.quit()
+
