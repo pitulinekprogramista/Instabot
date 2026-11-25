@@ -1,0 +1,7 @@
+.env
+slownik.json
+statystyki.json
+*.bak
+*.tmp
+__pycache__/
+.venv/
